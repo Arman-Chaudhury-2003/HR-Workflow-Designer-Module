@@ -1,3 +1,4 @@
+//simnulation reader
 import { useState } from "react";
 import { useWorkflowStore } from "../../hooks/useWorkflow";
 import { simulateWorkflow } from "../../api/simulate";

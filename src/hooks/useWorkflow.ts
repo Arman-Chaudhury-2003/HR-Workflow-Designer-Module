@@ -55,7 +55,7 @@ export const useWorkflowStore = create<WorkflowState>((set) => ({
           ? (
               updater as (
                 nodes: Node<WorkflowNodeData>[]
-              ) => Node<WorkflowNodeData>[]
+              ) => Node<WorkflowNodeData>[] //nijer updater opr
             )(state.nodes)
           : updater,
     })),
@@ -79,7 +79,6 @@ export const useWorkflowStore = create<WorkflowState>((set) => ({
       edges: state.edges.filter((e) => e.source !== id && e.target !== id),
       selectedNodeId:
         state.selectedNodeId === id ? undefined : state.selectedNodeId,
-      // if an edge referencing this node was selected, clear it
       selectedEdgeId: state.edges.some(
         (e) =>
           e.id === state.selectedEdgeId && (e.source === id || e.target === id)
@@ -111,14 +110,14 @@ export const useWorkflowStore = create<WorkflowState>((set) => ({
   setSelectedEdge: (id) =>
     set(() => ({
       selectedEdgeId: id,
-    })),
+    })), //gts
 
   updateNodeData: (id, data) =>
     set((state) => ({
       nodes: state.nodes.map((node) =>
         node.id === id
           ? {
-              ...node,
+              ...node, //node from 3 te dir vack
               data: { ...(node.data ?? {}), ...data } as WorkflowNodeData,
             }
           : node

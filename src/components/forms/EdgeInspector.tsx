@@ -1,3 +1,6 @@
+
+//edger opr when we select etc
+
 import { useWorkflowStore } from "../../hooks/useWorkflow";
 
 export const EdgeInspector = () => {

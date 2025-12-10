@@ -1,3 +1,4 @@
+//protek ta 
 import React, { useCallback } from "react";
 import ReactFlow, {
   Background,
@@ -18,7 +19,7 @@ import { nodeTypes } from "./nodeTypes";
 import { useWorkflowStore } from "../../hooks/useWorkflow";
 import type { WorkflowNodeData } from "../../types/workflow";
 
-export const WorkflowCanvas = () => {
+export const WorkflowCanvas = () => { // canvas er sre nodes se
   const nodes = useWorkflowStore((s) => s.nodes);
   const edges = useWorkflowStore((s) => s.edges);
   const setNodes = useWorkflowStore((s) => s.setNodes);
@@ -39,7 +40,7 @@ export const WorkflowCanvas = () => {
     (changes: Parameters<typeof applyEdgeChanges>[0]) => {
       setEdges((eds) => applyEdgeChanges(changes, eds as Edge[]));
     },
-    [setEdges]
+    [setEdges] // when we change
   );
 
   const onConnect = useCallback(
@@ -48,12 +49,12 @@ export const WorkflowCanvas = () => {
     },
     [setEdges]
   );
-
+            // moose detection bsically 
   const onNodeClick: NodeMouseHandler = (_event, node) => {
     setSelectedNode(node.id);
     setSelectedEdge(undefined);
   };
-
+//mouse detection kintu for edges
   const onEdgeClick: EdgeMouseHandler = (_event, edge) => {
     setSelectedEdge(edge.id);
     setSelectedNode(undefined);

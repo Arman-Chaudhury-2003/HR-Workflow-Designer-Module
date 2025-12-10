@@ -7,7 +7,7 @@ const createNode = (
   index: number
 ): Node<WorkflowNodeData> => {
   const id = `${type}-${Date.now()}-${index}`;
-  const base = {
+  const base = { //count and then display
     id,
     type,
     position: { x: 100 + index * 40, y: 80 + index * 40 },
@@ -75,8 +75,7 @@ export const Sidebar = () => {
     if (type === "start") {
       const hasStart = nodes.some((n) => n.data.type === "start");
       if (hasStart) {
-        // simple UX; you can later swap to toast
-        alert("Workflow already has a Start node.");
+        alert("Workflow already has a Start node."); // sudhu ekta start node
         return;
       }
     }

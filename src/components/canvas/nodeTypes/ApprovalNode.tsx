@@ -1,3 +1,4 @@
+//for approval
 import { Handle, Position } from "reactflow";
 import type { NodeProps } from "reactflow";
 import type { ApprovalNodeData } from "../../../types/workflow";

@@ -9,7 +9,7 @@ export const AppLayout = () => {
       <TopBar />
       <div className="app-body">
         <Sidebar />
-        <div className="app-canvas-wrapper">
+        <div className="app-canvas-wrapper"> //kiske baad kya aiga 
           <WorkflowCanvas />
         </div>
         <RightPanel />

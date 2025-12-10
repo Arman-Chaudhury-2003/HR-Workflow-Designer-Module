@@ -19,8 +19,7 @@ export const StatsPanel = () => {
 
     nodes.forEach((n) => {
       const t = n.data.type;
-      if (t in counts) {
-        //ts-expect-error runtime index
+      if (t in counts) { //when each edge happens count korbe
         counts[t]++;
       }
     });
@@ -36,7 +35,7 @@ export const StatsPanel = () => {
     };
   }, [nodes, edges]);
 
-  const maxNodeCount = Math.max(
+  const maxNodeCount = Math.max( // callculating max 
     stats.task,
     stats.approval,
     stats.automated,
@@ -109,3 +108,4 @@ export const StatsPanel = () => {
     </section>
   );
 };
+ //left bar er stats 

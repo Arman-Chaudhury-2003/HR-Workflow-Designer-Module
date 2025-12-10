@@ -7,7 +7,7 @@ import type { AutomationAction, WorkflowNodeData } from "../../types/workflow";
 type TextInputEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 type CheckboxEvent = ChangeEvent<HTMLInputElement>;
 
-export const NodeFormPanel = () => {
+export const NodeFormPanel = () => { //change korle and al the nodes and sleted items er 
   const nodes = useWorkflowStore((s) => s.nodes);
   const selectedNodeId = useWorkflowStore((s) => s.selectedNodeId);
   const updateNodeData = useWorkflowStore((s) => s.updateNodeData);
@@ -46,7 +46,7 @@ export const NodeFormPanel = () => {
     const payload = {
       [field]: e.target.checked,
     } as unknown as Partial<WorkflowNodeData>;
-    updateNodeData(node.id, payload);
+    updateNodeData(node.id, payload); //jodi na hoy then 
   };
 
   const handleDelete = () => {
@@ -105,7 +105,7 @@ export const NodeFormPanel = () => {
         );
 
       case "approval":
-        return (
+        return (//auto approve 
           <>
             <label className="field">
               Title
@@ -146,7 +146,7 @@ export const NodeFormPanel = () => {
               Action
               <select
                 value={data.actionId || ""}
-                onChange={(e) => {
+                onChange={(e) => { //payload ddiffers protek clisksk
                   const payload = {
                     actionId: e.target.value || undefined,
                     params: {},
@@ -179,7 +179,7 @@ export const NodeFormPanel = () => {
                             [p]: e.target.value,
                           };
                           const payload = {
-                            params: newParams,
+                            params: newParams, //per params
                           } as unknown as Partial<WorkflowNodeData>;
                           updateNodeData(node.id, payload);
                         }}

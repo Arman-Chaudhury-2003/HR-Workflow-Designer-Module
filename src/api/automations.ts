@@ -10,7 +10,7 @@ const MOCK_AUTOMATIONS: AutomationAction[] = [
 ];
 
 export async function getAutomations(): Promise<AutomationAction[]> {
-  // mimic network delay
+  // achon er jonno 
   await new Promise((r) => setTimeout(r, 200));
   return MOCK_AUTOMATIONS;
 }

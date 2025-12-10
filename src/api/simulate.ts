@@ -29,7 +29,7 @@ export async function simulateWorkflow(
     errors.push("End node is missing.");
   }
 
-  // Build adjacency list
+  // pasapasi ja nodes thakbe detection
   const adjacency: Record<string, string[]> = {};
   nodes.forEach((n) => {
     adjacency[n.id] = [];
@@ -41,7 +41,7 @@ export async function simulateWorkflow(
     }
   });
 
-  // DFS to detect cycles and compute reachable nodes
+  // reach korte pabo ki? check --
   const visited = new Set<string>();
   const visiting = new Set<string>();
   const hasCycle = { value: false };
@@ -73,11 +73,11 @@ export async function simulateWorkflow(
   }
 
   const unreachable = startId
-    ? nodes.filter((n) => !visited.has(n.id)).map((n) => n.data.label || n.id)
-    : [];
+    ? nodes.filter((n) => !visited.has(n.id)).map((n) => n.data.label || n.id) 
+    : []; //per node reach
 
   if (startId && unreachable.length > 0) {
-    errors.push(`Unreachable nodes from Start: ${unreachable.join(", ")}`);
+    errors.push(`Unreachable nodes from Start: ${unreachable.join(", ")}`); // joining it
   }
 
   if (errors.length > 0) {
@@ -88,7 +88,7 @@ export async function simulateWorkflow(
     };
   }
 
-  // Generate simple execution log in DFS order
+  // Jokhon amra depth nebo
   logs.push("Starting workflow simulation…");
 
   const describeNode = (node: Node<WorkflowNodeData>): string => {
@@ -107,7 +107,7 @@ export async function simulateWorkflow(
       case "end":
         return `End → ${d.endMessage || d.label}`;
     }
-  };
+  }; // sare conditions 
 
   const ordered: string[] = [];
   const dfsLog = (id: string) => {
